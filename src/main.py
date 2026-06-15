@@ -1,10 +1,28 @@
-from generator.mock_generator import MockGenerator
-from service.test_case_service import TestCaseService
+from src.generator.mock_generator import MockGenerator
+from src.service.test_case_service import TestCaseService
 
 generator = MockGenerator()
-service = TestCaseService(generator)
 
-result = service.generate_test_cases("Login API")
+service = TestCaseService(
+    generator
+)
 
-for r in result:
-    print(r)
+requirement = """
+Login API
+
+POST /login
+
+username
+password
+"""
+
+result = service.generate_test_cases(
+    requirement
+)
+
+for tc in result:
+
+    print(
+        f"[{tc.category}] "
+        f"{tc.description}"
+    )
