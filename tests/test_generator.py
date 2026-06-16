@@ -1,14 +1,41 @@
+import pytest
+
 from src.generator.mock_generator import MockGenerator
-from src.service.test_case_service import TestCaseService
+from src.service.test_case_service import (
+    TestCaseService
+)
 
-def test_login_requirement():
+@pytest.fixture
+def service():
 
-    service = TestCaseService(
+    return TestCaseService(
         MockGenerator()
     )
 
+@pytest.mark.parametrize(
+    "requirement,expected",
+    [
+
+        (
+            "login api",
+            3
+        ),
+
+        (
+            "payment api",
+            1
+        )
+    ]
+)
+
+def test_generate(
+    service,
+    requirement,
+    expected
+):
+
     result = service.generate_test_cases(
-        "login api"
+        requirement
     )
 
-    assert len(result) == 3
+    assert len(result) == expected
