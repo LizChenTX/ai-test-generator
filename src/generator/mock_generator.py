@@ -1,34 +1,25 @@
-from src.models import TestCase
+from src.models import (
+    TestCase
+)
 
-class MockGenerator:
+from src.generator.base_generator import (
+    BaseGenerator
+)
 
-    def generate(self, requirement: str):
 
-        requirement = requirement.lower()
+class MockGenerator(
+    BaseGenerator
+):
 
-        if "login" in requirement:
-
-            return [
-
-                TestCase(
-                    category="functional",
-                    description="Valid username and password"
-                ),
-
-                TestCase(
-                    category="negative",
-                    description="Invalid password"
-                ),
-
-                TestCase(
-                    category="boundary",
-                    description="Empty username"
-                )
-            ]
+    def run(
+        self,
+        prompt
+    ):
 
         return [
+
             TestCase(
-                category="functional",
-                description="Generic happy path"
+                "mock",
+                "always same"
             )
         ]
