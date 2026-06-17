@@ -1,25 +1,11 @@
-from src.models import (
-    TestCase
-)
-
-from src.generator.base_generator import (
-    BaseGenerator
-)
+from src.generator.base_llm import BaseLLM
+from src.models import TestCase
 
 
-class MockGenerator(
-    BaseGenerator
-):
+class MockGenerator(BaseLLM):
 
-    def run(
-        self,
-        prompt
-    ):
+    def run(self, prompt: str):
 
         return [
-
-            TestCase(
-                "mock",
-                "always same"
-            )
+            TestCase("mock", "fixed output")
         ]
