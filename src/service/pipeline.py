@@ -1,17 +1,26 @@
 class PromptPipeline:
 
-    def __init__(self, builder, llm, evaluator, telemetry):
+    def __init__(self, builder, llm_type, evaluator, telemetry):
 
         self.builder = builder
-        self.llm = llm
+
+        self.llm_type = llm_type
+
         self.evaluator = evaluator
+
         self.telemetry = telemetry
+
+    def _get_llm(self):
+
+        return self.llm_type
 
     def execute(self, requirement, version):
 
         prompt = self.builder.build(requirement, version)
 
-        result = self.llm.run(prompt)
+        llm = self._get_llm()
+
+        result = llm.run(prompt)
 
         metrics = self.telemetry.track(prompt, result)
 

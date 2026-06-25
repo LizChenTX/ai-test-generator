@@ -1,33 +1,93 @@
 class PromptBuilder:
 
-    def build(
-        self,
-        requirement,
-        version
-    ):
+    PROMPTS = {
 
-        if version == "A":
+        "A":
 
-            return f"""
-Generate test cases.
+"""
+Generate tests.
 
 Requirement:
+{r}
+""",
 
-{requirement}
+        "B":
+
 """
-
-        if version == "B":
-
-            return f"""
-You are senior QA.
+You are QA.
 
 Generate:
 
-- functional
-- negative
-- boundary
+functional
+negative
+boundary
 
 Requirement:
+{r}
+""",
 
-{requirement}
+        "C":
+
 """
+Think step by step.
+
+Generate:
+
+functional
+negative
+boundary
+edge
+
+Requirement:
+{r}
+""",
+
+        "D":
+
+"""
+You are principal QA.
+
+Generate:
+
+functional
+negative
+boundary
+edge
+
+Explain reasoning.
+
+Requirement:
+{r}
+"""
+
+    }
+
+    def build(
+
+        self,
+
+        requirement,
+
+        version
+
+    ):
+
+        return (
+
+            self
+
+            .PROMPTS
+
+            [
+
+                version
+
+            ]
+
+            .format(
+
+                r=requirement
+
+            )
+
+        )

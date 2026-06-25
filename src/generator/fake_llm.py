@@ -1,19 +1,45 @@
-from src.generator.base_llm import BaseLLM
+import random
+
 from src.models import TestCase
+from src.generator.base_llm import BaseLLM
 
 
 class FakeLLM(BaseLLM):
 
-    def run(self, prompt: str):
+    def run(self, prompt):
+
+        categories = []
+
+        categories.append(
+            "functional"
+        )
+
+        if "negative" in prompt:
+
+            categories.append(
+                "negative"
+            )
 
         if "boundary" in prompt:
 
-            return [
-                TestCase("functional", "valid login"),
-                TestCase("negative", "wrong password"),
-                TestCase("boundary", "empty username"),
-            ]
+            categories.append(
+                "boundary"
+            )
+
+        # 模拟LLM波动
+
+        if random.random() > 0.6:
+
+            categories.append(
+                "edge"
+            )
 
         return [
-            TestCase("functional", "valid login")
+
+            TestCase(
+                c,
+                f"{c} scenario"
+            )
+
+            for c in categories
         ]
