@@ -6,9 +6,12 @@ from src.generator.fake_llm import FakeLLM
 from src.evaluator.quality_evaluator import QualityEvaluator
 from src.service.prompt_mutator import PromptMutator
 from src.service.experiment_tracker import ExperimentTracker
+from src.dashboard.components import render_title
+from src.dashboard.metrics import render_metrics
+from src.dashboard.leaderboard import render_leaderboard
 
+render_title()
 
-st.title("🧪 AI Prompt Experiment Dashboard")
 
 if st.button("Run Experiment"):
 
@@ -20,8 +23,9 @@ if st.button("Run Experiment"):
     )
 
     results = optimizer.optimize("login api")
+    render_metrics(results)
 
-    st.write("## Leaderboard")
+    render_leaderboard(results)
 
     scores = [r["score"] for r in results]
 
@@ -36,5 +40,3 @@ if st.button("Run Experiment"):
     ax.set_title("Prompt Performance")
 
     st.pyplot(fig)
-
-    st.write(results)

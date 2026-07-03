@@ -18,7 +18,9 @@ class ExperimentTracker:
 
             {
 
-                "prompt": prompt,
+                "name": prompt["name"],
+
+                "prompt": prompt["prompt"],
 
                 "score": score
 
@@ -32,9 +34,7 @@ class ExperimentTracker:
 
             self.history,
 
-            key=lambda x:
-
-            x["score"],
+            key=lambda x: x["score"],
 
             reverse=True
 

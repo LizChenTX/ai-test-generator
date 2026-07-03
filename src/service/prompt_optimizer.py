@@ -30,70 +30,46 @@ class PromptOptimizer:
 
     ):
 
-        prompts = (
-
-            self.mutator.mutate(
-                requirement
-            )
-
+        prompts = self.mutator.mutate(
+            requirement
         )
 
         experiment = 1
 
         for p in prompts:
 
-            result = (
-
-                self.llm.run(
-                    p
-                )
-
+            result = self.llm.run(
+                p["prompt"]
             )
 
-            score = (
-
-                self.judge.score(
-                    result
-                )
-
+            score = self.judge.score(
+                result
             )
 
             self.tracker.save(
-
                 p,
-
                 score
+            )
 
+            print()
+            print("=" * 50)
+
+            print(
+                f"Experiment {experiment} - {p['name']}"
             )
 
             print()
 
-            print(
-                "=" * 50
-            )
+            print("PROMPT")
+            print()
 
             print(
-                f"Experiment {experiment}"
+                p["prompt"].strip()
             )
 
             print()
 
-            print(
-                "PROMPT"
-            )
-
-            print()
-
-            print(
-                p.strip()
-            )
-
-            print()
-
-            print(
-                "RESULT"
-            )
-
+            print("RESULT")
             print()
 
             for r in result:
@@ -108,28 +84,17 @@ class PromptOptimizer:
                 f"SCORE: {score}"
             )
 
-            print(
-                "=" * 50
-            )
+            print("=" * 50)
 
             experiment += 1
 
-        board = (
-
-            self.tracker
-            .leaderboard()
-
-        )
+        board = self.tracker.leaderboard()
 
         print()
 
-        print(
-            "#" * 50
-        )
+        print("#" * 50)
 
-        print(
-            "FINAL LEADERBOARD"
-        )
+        print("FINAL LEADERBOARD")
 
         print()
 
@@ -139,11 +104,7 @@ class PromptOptimizer:
         ):
 
             print(
-
-                f"{i}. "
-
-                f"score={row['score']}"
-
+                f"{i}. score={row['score']}"
             )
 
         print()
@@ -152,8 +113,6 @@ class PromptOptimizer:
             f"WINNER SCORE = {board[0]['score']}"
         )
 
-        print(
-            "#" * 50
-        )
+        print("#" * 50)
 
         return board
