@@ -1,3 +1,5 @@
+from pprint import pprint
+
 class PromptOptimizer:
 
     def __init__(
@@ -48,6 +50,7 @@ class PromptOptimizer:
 
             self.tracker.save(
                 p,
+                result,
                 score
             )
 
@@ -115,4 +118,7 @@ class PromptOptimizer:
 
         print("#" * 50)
 
+        pprint(board)
+
         return board
+    

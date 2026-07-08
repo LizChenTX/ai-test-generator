@@ -10,6 +10,8 @@ class ExperimentTracker:
 
         prompt,
 
+        result,
+
         score
 
     ):
@@ -21,6 +23,8 @@ class ExperimentTracker:
                 "name": prompt["name"],
 
                 "prompt": prompt["prompt"],
+
+                "result": result,
 
                 "score": score
 
