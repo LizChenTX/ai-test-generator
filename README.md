@@ -1,8 +1,22 @@
 # 🤖 AI Prompt Optimization Platform
 
-An end-to-end AI engineering project demonstrating how prompt engineering, evaluation, A/B testing, and experiment tracking can be combined into an automated prompt optimization workflow.
+An end-to-end AI engineering project demonstrating prompt engineering, experiment tracking, evaluation, and dashboard visualization.
 
-The project is intentionally designed with a modular architecture and currently uses a Fake LLM for rapid experimentation without API costs. The architecture is ready to integrate real LLM providers such as OpenAI, Claude, or Gemini.
+![Python](https://img.shields.io/badge/Python-3.9-blue)
+
+![Streamlit](https://img.shields.io/badge/Streamlit-App-red)
+
+![License](https://img.shields.io/badge/License-MIT-green)
+
+### 🚀 Live Demo
+
+https://ai-test-generator.streamlit.app/
+
+---
+
+## 📸 Dashboard
+
+![Dashboard](docs/images/dashboard.png)
 
 ---
 
@@ -176,7 +190,6 @@ The dashboard provides:
 - Prompt detail viewer
 - Prompt comparison chart
 
-> Dashboard screenshot will be added after deployment.
 
 ---
 
