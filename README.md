@@ -1,156 +1,197 @@
-# AI Test Generator
+# 🤖 AI Prompt Optimization Platform
 
-A lightweight prompt experimentation and evaluation platform for automated test generation.
+An end-to-end AI engineering project demonstrating how prompt engineering, evaluation, A/B testing, and experiment tracking can be combined into an automated prompt optimization workflow.
 
-This project was built to explore how AI systems can generate and evaluate software test cases through prompt engineering, experimentation, and scoring pipelines.
-
----
-
-## Overview
-
-This project simulates an AI workflow:
-
-Requirement
-
-↓
-
-Prompt Generation
-
-↓
-
-LLM Layer (Mock)
-
-↓
-
-Evaluation
-
-↓
-
-Experiment Tracking
-
-↓
-
-Optimization
-
-The current implementation does not require paid API usage and runs locally.
+The project is intentionally designed with a modular architecture and currently uses a Fake LLM for rapid experimentation without API costs. The architecture is ready to integrate real LLM providers such as OpenAI, Claude, or Gemini.
 
 ---
 
-## Features
+# ✨ Features
 
-### Prompt Engineering
-
-* Prompt Builder
-* Prompt Mutation
-* Prompt Comparison
-
-### LLM Abstraction
-
-* Fake LLM implementation
-* Provider decoupling
-
-### Evaluation
-
-* Quality-based scoring
-* Coverage evaluation
-
-### Experiment Platform
-
-* Experiment tracker
-* Leaderboard
-* Prompt optimization
+- Prompt template generation
+- Prompt mutation
+- Prompt optimization
+- Prompt A/B testing
+- Experiment tracking
+- Prompt quality evaluation
+- Interactive Streamlit dashboard
+- Modular architecture for future LLM integration
 
 ---
 
-## Architecture
+# 🏗 Architecture
+
+```text
+                 User Requirement
+                        │
+                        ▼
+                Prompt Mutator
+                        │
+                        ▼
+                  Fake LLM
+                        │
+                        ▼
+              Quality Evaluator
+                        │
+                        ▼
+             Experiment Tracker
+                        │
+                        ▼
+              Prompt Optimizer
+                        │
+                        ▼
+             Streamlit Dashboard
+```
+
+## Components
+
+| Module | Responsibility |
+|----------|---------------|
+| PromptMutator | Generate multiple prompt templates |
+| FakeLLM | Simulate LLM responses without API cost |
+| QualityEvaluator | Evaluate generated test cases |
+| ExperimentTracker | Record experiment history |
+| PromptOptimizer | Coordinate the optimization workflow |
+| Dashboard | Visualize experiment results |
+
+---
+
+# 🚀 Project Evolution
+
+This project was intentionally developed in multiple phases to simulate how an AI engineering project evolves in production.
+
+| Phase | Milestone |
+|---------|-----------|
+| Phase 1 | Mock Test Generator |
+| Phase 2 | Prompt Builder |
+| Phase 3 | Fake LLM Integration |
+| Phase 4 | Prompt Optimizer |
+| Phase 5 | Experiment Tracker |
+| Phase 6 | Dashboard Visualization |
+| Phase 7 | Deployment & Documentation |
+
+---
+
+# 📂 Repository Structure
+
+```text
+src/
+
+├── dashboard/
+│   ├── app.py
+│   ├── chart.py
+│   ├── leaderboard.py
+│   ├── metrics.py
+│   └── prompt_viewer.py
+
+├── evaluator/
+│   └── quality_evaluator.py
+
+├── generator/
+│   ├── fake_llm.py
+│   └── base_llm.py
+
+├── service/
+│   ├── prompt_optimizer.py
+│   ├── prompt_mutator.py
+│   └── experiment_tracker.py
+```
+
+---
+
+# ⚙️ How It Works
+
+The optimization workflow follows these steps:
+
+1. Enter a software requirement.
+2. Generate multiple prompt candidates.
+3. Run each prompt through the Fake LLM.
+4. Evaluate generated test cases.
+5. Track experiment results.
+6. Rank prompts by score.
+7. Visualize results using the Streamlit dashboard.
+
+Workflow:
 
 ```text
 Requirement
-↓
-
-PromptMutator
-
-↓
-
-FakeLLM
-
-↓
-
-QualityEvaluator
-
-↓
-
-ExperimentTracker
-
-↓
-
-PromptOptimizer
+      │
+      ▼
+Generate Prompt Variants
+      │
+      ▼
+Run Fake LLM
+      │
+      ▼
+Evaluate Quality
+      │
+      ▼
+Track Experiments
+      │
+      ▼
+Rank Prompts
+      │
+      ▼
+Dashboard
 ```
 
 ---
 
-## Run
+# ▶️ Run Locally
 
-Create virtual environment:
-
-```bash
-python -m venv .venv
-```
-
-Activate:
+Clone the repository
 
 ```bash
-source .venv/bin/activate
+git clone https://github.com/LizChenTX/ai-test-generator.git
+
+cd ai-test-generator
 ```
 
-Install:
+Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Run:
+Run the optimizer
 
 ```bash
 python -m src.main_optimizer
 ```
 
----
+Launch the dashboard
 
-## Example Output
-
-```text
-Experiment 1
-
-Prompt:
-Generate tests
-
-Score: 2
-
-Experiment 2
-
-Prompt:
-You are QA
-
-Score: 4
+```bash
+streamlit run src/dashboard/app.py
 ```
 
 ---
 
-## Roadmap
+# 📊 Dashboard
 
-v1 Mock Prompt Evaluation
+The dashboard provides:
 
-v2 Prompt Optimization
+- Experiment metrics
+- Prompt leaderboard
+- Prompt detail viewer
+- Prompt comparison chart
 
-v3 Experiment Tracking
-
-v4 OpenAI Integration (planned)
-
-v5 Retrieval-Augmented Generation (planned)
+> Dashboard screenshot will be added after deployment.
 
 ---
 
-## Author
+# 🔮 Future Work
 
-Built as an AI Engineering transition project.
+- OpenAI / Claude integration
+- Token and cost tracking
+- Multi-model comparison
+- Persistent experiment history
+- Prompt version management
+- CI/CD pipeline
+- Streamlit Cloud deployment
+
+---
+
+# 📄 License
+
+MIT License
