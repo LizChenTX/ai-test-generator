@@ -1,3 +1,6 @@
 pytest
 openai
 python-dotenv
+streamlit
+matplotlib
+pandas

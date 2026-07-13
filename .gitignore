@@ -9,3 +9,7 @@ __pycache__/
 archive/
 
 *.pyc
+
+.DS_Store
+
+。idea/
