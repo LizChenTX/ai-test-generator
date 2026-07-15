@@ -25,6 +25,7 @@ from src.dashboard.metrics import render_metrics
 from src.dashboard.leaderboard import render_leaderboard
 from src.dashboard.prompt_viewer import render_prompt_viewer
 from src.dashboard.chart import render_chart
+from src.dashboard.foot import render_footer 
 
 render_title()
 
@@ -102,3 +103,4 @@ if results:
         render_leaderboard(results)
 
     render_prompt_viewer(results)
+render_footer()
